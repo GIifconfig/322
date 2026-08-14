@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- 摄像头预览布局 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <SurfaceView
+                android:id="@+id/surfaceViewFront"
+                android:layout_width="0dp"
+                android:layout_height="240dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp" />
+
+            <SurfaceView
+                android:id="@+id/surfaceViewBack"
+                android:layout_width="0dp"
+                android:layout_height="240dp"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp" />
+        </LinearLayout>
+
+        <!-- 摄像头控制按钮 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <Button
+                android:id="@+id/btnStartBothCameras"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="启动双摄" />
+
+            <Button
+                android:id="@+id/btnTakePhotoFront"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="前摄拍照" />
+
+            <Button
+                android:id="@+id/btnTakePhotoBack"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="后摄拍照" />
+
+            <Button
+                android:id="@+id/btnTakeBothPhotos"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="双摄拍照" />
+        </LinearLayout>
+
+        <!-- 摄像头开关按钮 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <Button
+                android:id="@+id/btnOpenCamera"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="打开摄像头" />
+
+            <Button
+                android:id="@+id/btnCloseCamera"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="关闭摄像头" />
+        </LinearLayout>
+
+        <!-- 前摄像头变焦控制 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="前摄像头变焦"
+            android:layout_marginBottom="4dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <EditText
+                android:id="@+id/frontZoomInput"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="numberDecimal"
+                android:hint="输入变焦倍数"/>
+
+            <Button
+                android:id="@+id/btnSetFrontZoom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="设置变焦"/>
+        </LinearLayout>
+
+        <!-- 后摄像头变焦控制 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="后摄像头变焦"
+            android:layout_marginBottom="4dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <EditText
+                android:id="@+id/backZoomInput"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="numberDecimal"
+                android:hint="输入变焦倍数"/>
+
+            <Button
+                android:id="@+id/btnSetBackZoom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="设置变焦"/>
+
+            <Button
+                android:id="@+id/btnFlash"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="闪光灯"/>
+        </LinearLayout>
+
+        <!-- 振动控制 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="振动控制"
+            android:layout_marginBottom="4dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <EditText
+                android:id="@+id/vibrateInput"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:hint="输入振动强度"/>
+
+            <Button
+                android:id="@+id/btnVibrateToggle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="开始振动"/>
+        </LinearLayout>
+
+        <!-- 亮度控制 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="亮度控制"
+            android:layout_marginBottom="4dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <EditText
+                android:id="@+id/brightnessInput"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:hint="输入亮度值(0-255)"/>
+
+            <Button
+                android:id="@+id/btnSetBrightness"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="设置亮度"/>
+        </LinearLayout>
+
+        <!-- 录音控制 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <Button
+                android:id="@+id/btnStartRecord"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="开始录音" />
+
+            <Button
+                android:id="@+id/btnStopRecord"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="停止录音" />
+
+            <Button
+                android:id="@+id/btnPlayRecord"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="播放录音" />
+        </LinearLayout>
+
+        <!-- 录音状态 -->
+        <TextView
+            android:id="@+id/txtRecordStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="录音状态：未开始" />
+
+        <!-- 系统信息部分 -->
+        <Button
+            android:id="@+id/btnRefreshInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="刷新系统信息" />
+
+        <TextView
+            android:id="@+id/txtSystemInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:text="点击按钮获取系统信息" />
+
+        <!-- 位置信息 -->
+        <Button
+            android:id="@+id/btnGetLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="获取位置信息" />
+
+        <TextView
+            android:id="@+id/txtLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:text="点击按钮获取位置信息" />
+
+        <!-- 传感器数据显示 -->
+        <TextView
+            android:id="@+id/txtSensorData"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="传感器数据将自动更新" />
+
+        <!-- WIFI扫描 -->
+        <Button
+            android:id="@+id/btnWifiScan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="扫描WIFI" />
+
+        <TextView
+            android:id="@+id/txtWifiResults"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:text="点击按钮扫描WIFI" />
+
+        <!-- 蓝牙扫描 -->
+        <Button
+            android:id="@+id/btnBluetoothScan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="扫描蓝牙设备" />
+
+        <TextView
+            android:id="@+id/txtBluetoothResults"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:text="点击按钮扫描蓝牙设备" />
+
+        <!-- 视频播放器部分 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="视频播放器"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+
+            <EditText
+                android:id="@+id/videoPathInput"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="输入视频路径"
+                android:inputType="textUri"
+                android:singleLine="true"/>
+
+            <Button
+                android:id="@+id/btnPlayVideo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="播放"/>
+
+            <Button
+                android:id="@+id/btnToggleOrientation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="横屏播放"/>
+        </LinearLayout>
+
+        <!-- 视频容器 -->
+        <FrameLayout
+            android:id="@+id/videoContainer"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:background="#000000" />
+
+        <!-- 视频进度条（外置于视频下方） -->
+        <SeekBar
+            android:id="@+id/videoSeekBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- 视频信息显示 -->
+        <TextView
+            android:id="@+id/txtVideoInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="视频信息将在播放时显示" />
+
+    </LinearLayout>
+</ScrollView>
